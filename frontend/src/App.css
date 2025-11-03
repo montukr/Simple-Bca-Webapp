@@ -1,38 +1,200 @@
-.App {
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fb;
+}
+
+/* App container uses flex layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content expands between navbar and footer */
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.navbar a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Logout button */
+.logout-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: white;
+  color: #007bff;
+  transition: 0.3s;
+}
+
+
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+
+.form-container {
+  width: 320px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-container h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Input fields */
+.form-container input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* ensures padding doesn’t affect width */
+  padding: 0.6rem;
+  margin: 0.6rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Input focus effect */
+.form-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit button */
+.form-container button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem;
+  background: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+/* Button hover effect */
+.form-container button:hover {
+  background: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Message text */
+.form-container p {
+  margin-top: 1rem;
+  color: #333;
+}
+
+
+.dashboard {
+  width: 80%;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dashboard p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.topic-section {
+  margin-bottom: 2rem;
+}
+
+.topic-section h3 {
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.topic-section ul {
+  list-style-type: circle;
+  margin-left: 1.5rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar div {
+    margin-top: 0.5rem;
+  }
+
+  .dashboard {
+    width: 95%;
+    padding: 1.2rem;
+  }
+
+  .form-container {
+    width: 90%;
   }
 }

@@ -1,5 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function myFootter () {
-    
-}
+const Footer = () => (
+  <footer className="footer">
+    <p>© {new Date().getFullYear()} AWS Learning Platform | Made by Montu Kumar</p>
+  </footer>
+);
+
+export default Footer;

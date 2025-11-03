@@ -1,23 +1,18 @@
-// server.js to connect with mongodb
-const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config();
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
 
+dotenv.config();
 const app = express();
-const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-// Connect to MongoDB
-const uri = process.env.MONGODB_URI;
-mongoose.connect(uri)
-  .then(() => console.log("MongoDB connection established successfully"))
-  .catch(err => console.error("MongoDB connection error:", err));
+// Routes
+app.use("/api/auth", authRoutes);
 
-// Define routes
-// app.use('/api/items', require('./routes/api/items')); // Example route
-
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+connectDB();
+app.listen(process.env.PORT, () => console.log(`🚀 Server running on port ${process.env.PORT}`));
